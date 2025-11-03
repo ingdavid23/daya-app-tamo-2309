@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>daya ❤️</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
+      text-align: center;
+      color: #333;
+      transition: background-color 0.4s ease;
+      /* Añadido para mejor scroll en pantallas pequeñas */
+      overflow-y: auto; 
+      padding: 20px 0;
+    }
+
+    h2, h3, p {
+      margin: 10px 0;
+    }
+
+    .screen {
+      display: none;
+      width: 90%;
+      max-width: 420px; /* Este es el ancho móvil principal */
+    }
+
+    .active {
+      display: block;
+    }
+
+    input {
+      padding: 10px;
+      width: 80%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1em;
+      outline: none;
+      margin-top: 10px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      background-color: #ff4f81;
+      color: white;
+    }
+
+    button:hover {
+      background-color: #ff2a66;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 25px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      animation: fadeIn 0.8s ease;
+      text-align: left; 
+    }
+
+    .main-img {
+      width: 280px;
+      height: auto;
+      margin-bottom: 15px;
+      object-fit: contain;
+      background: none;
+      border: none;
+      box-shadow: none;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.95);}
+      to {opacity: 1; transform: scale(1);}
+    }
+
+    #errorMessage {
+      color: red;
+      font-size: 0.9em;
+      margin-top: 8px;
+    }
+
+    .card p {
+      text-align: justify;
+      line-height: 1.6;
+      font-size: 1em;
+      margin-top: 15px;
+    }
+
+    /* --- ESTILOS PARA EL ÁLBUM --- */
+    
+    #albumScreen {
+      /* ELIMINADO: max-width: 800px; 
+         Esto forzaba al álbum a ser más ancho que las otras pantallas.
+         Al quitarlo, respeta el max-width: 420px de la clase .screen */
+    }
+
+    .photo-grid {
+      display: grid;
+      /* CAMBIADO: 2 columnas se ven mejor en móvil que 3 */
+      grid-template-columns: repeat(2, 1fr); 
+      gap: 10px; /* Espacio entre fotos */
+      margin-top: 20px;
+    }
+
+    .photo-grid img {
+      width: 100%;
+      /* CAMBIADO: Ajusté la altura para que se vea mejor en 2 columnas */
+      height: 150px; 
+      object-fit: cover; /* Para que las fotos se vean bien */
+      background-color: #f0f0f0;
+      border: 2px solid #ff4f81; /* Borde sólido */
+      border-radius: 8px;
+      box-sizing: border-box; /* Para que el borde no afecte el tamaño */
+    }
+    /* --- FIN DE ESTILOS DEL ÁLBUM --- */
+
+    /* --- ESTILO PARA EL SCROLL DE LA CARTA --- */
+    .letter-content {
+      /* Define una altura máxima para la carta */
+      max-height: 45vh; /* 45% de la altura de la pantalla, ajústalo si quieres */
+      
+      /* Muestra el scroll vertical SÓLO si el contenido se pasa */
+      overflow-y: auto; 
+      
+      /* Espaciado para que se vea bien */
+      margin-bottom: 15px; /* Separa el texto del botón "Volver" */
+      padding-right: 10px;  /* Evita que el texto se pegue a la barra de scroll */
+    }
+    /* --- FIN DE ESTILO DE CARTA --- */
+
+  </style>
+</head>
+<body>
+
+  <div class="screen active" id="passwordScreen">
+    <img src="daya.jpeg" alt="Caja de regalo" class="main-img">
+    <h2>🔒 Ingresa la contraseña</h2>
+    <input type="password" id="passwordInput" placeholder="Escribe la clave...">
+    <br>
+    <button onclick="checkPassword()">Entrar</button>
+    <p id="errorMessage"></p>
+  </div>
+
+  <div class="screen" id="menuScreen">
+    <h2>💌 Dedicado para ti, amorcito 💌</h2>
+    <p>Elige lo que quieres abrir:</p>
+    <div class="btn-container">
+      <button onclick="window.open('https://n9.cl/si29t')">🎶 Ver video</button>
+      <button onclick="showLetter()">❤️ Leer carta</button>
+      <button onclick="showAlbum()">📸 Álbum de Fotos</button>
+    </div>
+  </div>
+
+  <div class="screen" id="letterScreen">
+    <div class="card">
+      <h3>Para Yazmin el amor de mi vida,</h3>
+
+      <div class="letter-content">
+        <p> Te amo mucho mi amor, a través de esta carta 
+          te quiero expresar todo lo que siento por ti desde 
+          mi amor y mi talento de programador y si lo puedes 
+          imaginar lo puedes programar quiero programar nustra 
+          boda y nuestra vida y retratar nustro amor tambime 
+          Quiero decirte que te amo con todo mi corazón
+          Y tú eres la persona que me hace feliz y llena mi alma de amor
+          También quiero decirte que jamás te fallaré
+          Siempre te voy a llenar de Amor Y de felicidad
+          Mi intención casarme contigo, tener una linda familia y vivir felices
+          Yo quiero que nunca vayamos el uno al otro
+          Porque tú eres la persona que me dio vida
+          Sin ti Yo créeme que absolutamente no sería nada
+          Eres el amor de mi vida Eso jamás lo cambiaré por nada
+          Yo también quiero pedirte disculpas por todos mis errores
+          Verás que voy a mejorar y voy a hacer un buen novio
+          También quiero ser un buen esposo y un buen padre
+          Yo contigo veo el futuro vamos a conseguir nuestro para siempre
+          Cuándo se habla del Amor Yo siempre pienso en ti
+          Tú eres mi pensamiento siempre 
+          Quiero agradecerte por todo lo que haces por mí
+          En verdad A veces es impresionante para mí
+          El que tú puedas amarme siendo un hombre tan imperfecto
+          Admiro a la mujer que eres ni sé que eres una mujer
+          Única respetuosa amable fiel linda y mi amorosa
+          Es por eso que esta carta es para decirte un poquito de lo demasiado
+          Y te amo porque a veces las palabras no me alcanzan
+          Te voy a decir que te amo una y otra vez
+          Porque para mí no es repetitivo para mi es decirte que te amo
+          Te amo te amo te amo Mi Amor por ti
+          Crees que cada día más y siempre florece
+          Mi amor por ti es único y más sincero
+          Te amo con mucha intensidad. Gracias Mi Amor ❤️.
+        </p>
+        <p>Con mucho amor David,</p>
+        
+      </div>
+      <button onclick="goBack()">🔙 Volver</button>
+    </div>
+  </div>
+  <div class="screen" id="albumScreen">
+    <h2>📸 Nuestro Álbum 📸</h2>
+    <p>Nuestros momentos especiales:</p>
+    
+    <div class="photo-grid">
+      <img src="daya2.jpeg" alt="Foto 1">
+      <img src="daya3.jpeg" alt="Foto 2">
+      <img src="daya.jpeg" alt="Foto 3">
+      <img src="daya4.jpeg" alt="Foto 4">
+      <img src="daya5.jpeg" alt="Foto 5">
+      <img src="daya6.jpeg" alt="Foto 6">
+      </div>
+    
+    <button onclick="goBack()">🔙 Volver</button>
+  </div>
+
+
+  <script>
+    const correctPassword = "daya";
+
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value.trim();
+      const error = document.getElementById("errorMessage");
+
+      if (input === correctPassword) {
+        document.getElementById("passwordScreen").classList.remove("active");
+        document.getElementById("menuScreen").classList.add("active");
+        error.textContent = "";
+      } else {
+        error.textContent = "Contraseña incorrecta 💔";
+      }
+    }
+
+    function showLetter() {
+      document.getElementById("menuScreen").classList.remove("active");
+      document.getElementById("letterScreen").classList.add("active");
+    }
+
+    // Muestra la pantalla del álbum
+    function showAlbum() {
+      document.getElementById("menuScreen").classList.remove("active");
+      document.getElementById("albumScreen").classList.add("active");
+    }
+
+    // Vuelve al menú
+    function goBack() {
+      document.getElementById("letterScreen").classList.remove("active");
+      document.getElementById("albumScreen").classList.remove("active"); 
+      
+      document.getElementById("menuScreen").classList.add("active");
+    }
+  </script>
+
+</body>
+</html>
