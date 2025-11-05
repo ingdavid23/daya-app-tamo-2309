@@ -17,142 +17,65 @@
       text-align: center;
       color: #333;
       transition: background-color 0.4s ease;
-      /* Añadido para mejor scroll en pantallas pequeñas */
       overflow-y: auto; 
       padding: 20px 0;
     }
 
-    h2, h3, p {
-      margin: 10px 0;
-    }
+    h2, h3, p { margin: 10px 0; }
 
-    .screen {
-      display: none;
-      width: 90%;
-      max-width: 420px; /* Este es el ancho móvil principal */
-    }
-
-    .active {
-      display: block;
-    }
+    .screen { display: none; width: 90%; max-width: 420px; }
+    .active { display: block; }
 
     input {
-      padding: 10px;
-      width: 80%;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1em;
-      outline: none;
-      margin-top: 10px;
+      padding: 10px; width: 80%; border: 1px solid #ccc; border-radius: 8px;
+      font-size: 1em; outline: none; margin-top: 10px;
     }
 
     button {
-      margin-top: 15px;
-      padding: 10px 20px;
-      font-size: 1em;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-      background-color: #ff4f81;
-      color: white;
+      margin-top: 15px; padding: 10px 20px; font-size: 1em; border: none;
+      border-radius: 8px; cursor: pointer; transition: 0.3s;
+      background-color: #ff4f81; color: white;
     }
-
-    button:hover {
-      background-color: #ff2a66;
-    }
+    button:hover { background-color: #ff2a66; }
 
     .btn-container {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-top: 25px;
+      display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 25px;
     }
 
     .card {
-      background-color: white;
-      border-radius: 15px;
-      padding: 25px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      animation: fadeIn 0.8s ease;
-      text-align: left; 
+      background-color: white; border-radius: 15px; padding: 25px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1); animation: fadeIn 0.8s ease; text-align: left;
     }
 
     .main-img {
-      width: 280px;
-      height: auto;
-      margin-bottom: 15px;
-      object-fit: contain;
-      background: none;
-      border: none;
-      box-shadow: none;
+      width: 280px; height: auto; margin-bottom: 15px; object-fit: contain;
+      background: none; border: none; box-shadow: none;
     }
 
-    @keyframes fadeIn {
-      from {opacity: 0; transform: scale(0.95);}
-      to {opacity: 1; transform: scale(1);}
-    }
+    @keyframes fadeIn { from {opacity: 0; transform: scale(0.95);} to {opacity: 1; transform: scale(1);} }
 
-    #errorMessage {
-      color: red;
-      font-size: 0.9em;
-      margin-top: 8px;
-    }
+    #errorMessage { color: red; font-size: 0.9em; margin-top: 8px; }
 
-    .card p {
-      text-align: justify;
-      line-height: 1.6;
-      font-size: 1em;
-      margin-top: 15px;
-    }
+    .card p { text-align: justify; line-height: 1.6; font-size: 1em; margin-top: 15px; }
 
-    /* --- ESTILOS PARA EL ÁLBUM --- */
-    
-    #albumScreen {
-      /* ELIMINADO: max-width: 800px; 
-         Esto forzaba al álbum a ser más ancho que las otras pantallas.
-         Al quitarlo, respeta el max-width: 420px de la clase .screen */
-    }
-
-    .photo-grid {
-      display: grid;
-      /* CAMBIADO: 2 columnas se ven mejor en móvil que 3 */
-      grid-template-columns: repeat(2, 1fr); 
-      gap: 10px; /* Espacio entre fotos */
-      margin-top: 20px;
-    }
-
+    .photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 20px; }
     .photo-grid img {
-      width: 100%;
-      /* CAMBIADO: Ajusté la altura para que se vea mejor en 2 columnas */
-      height: 150px; 
-      object-fit: cover; /* Para que las fotos se vean bien */
-      background-color: #f0f0f0;
-      border: 2px solid #ff4f81; /* Borde sólido */
-      border-radius: 8px;
-      box-sizing: border-box; /* Para que el borde no afecte el tamaño */
+      width: 100%; height: 150px; object-fit: cover; background-color: #f0f0f0;
+      border: 2px solid #ff4f81; border-radius: 8px; box-sizing: border-box;
     }
-    /* --- FIN DE ESTILOS DEL ÁLBUM --- */
 
-    /* --- ESTILO PARA EL SCROLL DE LA CARTA --- */
-    .letter-content {
-      /* Define una altura máxima para la carta */
-      max-height: 45vh; /* 45% de la altura de la pantalla, ajústalo si quieres */
-      
-      /* Muestra el scroll vertical SÓLO si el contenido se pasa */
-      overflow-y: auto; 
-      
-      /* Espaciado para que se vea bien */
-      margin-bottom: 15px; /* Separa el texto del botón "Volver" */
-      padding-right: 10px;  /* Evita que el texto se pegue a la barra de scroll */
-    }
-    /* --- FIN DE ESTILO DE CARTA --- */
+    .letter-content { max-height: 45vh; overflow-y: auto; margin-bottom: 15px; padding-right: 10px; }
 
+    /* Mini reproductor */
+    .video-card { padding: 16px; border-radius: 14px; background: #fff; box-shadow: 0 0 15px rgba(0,0,0,0.08); }
+    .video-wrapper { position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 18px rgba(0,0,0,0.12); margin-top: 10px; }
+    .video-wrapper iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .hint { font-size: 0.85em; color: #666; margin-top: 8px; }
   </style>
 </head>
 <body>
 
+  <!-- Password -->
   <div class="screen active" id="passwordScreen">
     <img src="daya.jpeg" alt="Caja de regalo" class="main-img">
     <h2>🔒 Ingresa la contraseña</h2>
@@ -162,20 +85,21 @@
     <p id="errorMessage"></p>
   </div>
 
+  <!-- Menú -->
   <div class="screen" id="menuScreen">
     <h2>💌 Dedicado para ti, amorcito 💌</h2>
     <p>Elige lo que quieres abrir:</p>
     <div class="btn-container">
-      <button onclick="window.open('https://n9.cl/si29t')">🎶 Ver video</button>
+      <button onclick="showVideo()">🎬 Ver video aquí</button>
       <button onclick="showLetter()">❤️ Leer carta</button>
       <button onclick="showAlbum()">📸 Álbum de Fotos</button>
     </div>
   </div>
 
+  <!-- Carta -->
   <div class="screen" id="letterScreen">
     <div class="card">
       <h3>Para Yazmin el amor de mi vida,</h3>
-
       <div class="letter-content">
         <p> Te amo mucho mi amor, a través de esta carta 
           te quiero expresar todo lo que siento por ti desde 
@@ -212,15 +136,15 @@
           Te amo con mucha intensidad. Gracias Mi Amor ❤️.
         </p>
         <p>Con mucho amor David,</p>
-        
       </div>
       <button onclick="goBack()">🔙 Volver</button>
     </div>
   </div>
+
+  <!-- Álbum -->
   <div class="screen" id="albumScreen">
     <h2>📸 Nuestro Álbum 📸</h2>
     <p>Nuestros momentos especiales:</p>
-    
     <div class="photo-grid">
       <img src="daya2.jpeg" alt="Foto 1">
       <img src="daya3.jpeg" alt="Foto 2">
@@ -228,13 +152,52 @@
       <img src="daya4.jpeg" alt="Foto 4">
       <img src="daya5.jpeg" alt="Foto 5">
       <img src="daya6.jpeg" alt="Foto 6">
-      </div>
-    
+    </div>
     <button onclick="goBack()">🔙 Volver</button>
   </div>
 
+  <!-- Video -->
+  <div class="screen" id="videoScreen">
+    <div class="video-card">
+      <h2>🎬 Nuestro video</h2>
+      <div class="video-wrapper">
+        <iframe
+          id="ytPlayer"
+          src=""
+          title="YouTube video player"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <p class="hint">Si el video no carga, verifica tu conexión.</p>
+      <div class="btn-container">
+        <button onclick="goBack()">🔙 Volver</button>
+      </div>
+    </div>
+  </div>
 
   <script>
+    // Tu enlace de YouTube (puedes cambiarlo cuando quieras)
+    const YT_SOURCE_URL = "https://www.youtube.com/watch?v=nwrqQ2jYpwY";
+
+    // Extrae el ID desde una URL o devuelve el mismo string si ya es ID
+    function extractYouTubeId(u) {
+      try {
+        const url = new URL(u);
+        if (url.hostname.includes('youtu.be')) return url.pathname.slice(1).split('/')[0];
+        if (url.searchParams.get('v')) return url.searchParams.get('v');
+        const m = url.pathname.match(/\/(shorts|embed)\/([^/?]+)/);
+        if (m) return m[2];
+        return "";
+      } catch {
+        return u.trim();
+      }
+    }
+
+    const YT_VIDEO_ID = extractYouTubeId(YT_SOURCE_URL);
+
     const correctPassword = "daya";
 
     function checkPassword() {
@@ -251,22 +214,35 @@
     }
 
     function showLetter() {
-      document.getElementById("menuScreen").classList.remove("active");
+      hideAll();
       document.getElementById("letterScreen").classList.add("active");
     }
 
-    // Muestra la pantalla del álbum
     function showAlbum() {
-      document.getElementById("menuScreen").classList.remove("active");
+      hideAll();
       document.getElementById("albumScreen").classList.add("active");
     }
 
-    // Vuelve al menú
+    function showVideo() {
+      hideAll();
+      const iframe = document.getElementById("ytPlayer");
+      const embed = YT_VIDEO_ID
+        ? `https://www.youtube.com/embed/${YT_VIDEO_ID}?rel=0&modestbranding=1&playsinline=1`
+        : "";
+      iframe.src = embed;
+      document.getElementById("videoScreen").classList.add("active");
+    }
+
     function goBack() {
-      document.getElementById("letterScreen").classList.remove("active");
-      document.getElementById("albumScreen").classList.remove("active"); 
-      
+      const iframe = document.getElementById("ytPlayer");
+      if (iframe) iframe.src = ""; // detiene el video
+      hideAll();
       document.getElementById("menuScreen").classList.add("active");
+    }
+
+    function hideAll() {
+      ["menuScreen","letterScreen","albumScreen","videoScreen","passwordScreen"]
+        .forEach(id => document.getElementById(id)?.classList.remove("active"));
     }
   </script>
 
